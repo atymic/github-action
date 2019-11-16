@@ -18,10 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: npm install
-      uses: actions/npm@master
+    - uses: actions/setup-node@v1
       with:
-        args: install
+        node-version: '10.x'
+    - run: npm install
     - name: serverless deploy
       uses: serverless/github-action@master
       with:
